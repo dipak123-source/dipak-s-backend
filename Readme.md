@@ -1,4 +1,4 @@
-# chai aur backend series
+# My backend project while learning the backend
 
-This is a video series on backend with javascript 
+This is a backend with javascript 
 - [Model link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj?origin=share)
