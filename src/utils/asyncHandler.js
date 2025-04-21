@@ -1,4 +1,4 @@
-const asyncHandler = (requestHandler)=>{
+const asyncHandler = (requestHandler)=>{//it  is a higher order function which accepts the lower order function
    return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next)).
         catch((err)=>next(err)) 

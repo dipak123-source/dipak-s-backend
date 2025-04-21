@@ -31,7 +31,7 @@ const registerUser = asyncHandler( async (req,res)=>{
     // remove password and refresh token field from response
     // check for user creation
     // return response
-    const {fullname, email, username, password} = req.body// it has been destructured
+    const {fullname, email, username, password} = req.body// it has been destructured. this information has been obtained from the frontend
     console.log("email:",email);
 
     if(
@@ -394,4 +394,14 @@ const getWatchHistory = asyncHandler(async(req,res)=>{
     .status(200)
     .json(ApiResponse(200,user[0].watchHistory,"Watch history fetched successfully"))
 })
-export {registerUser,loginUser,logOutUser,refreshAccessToken,changeCurrectPassword,getCurrentUser,updateAccountDetail,updateUserAvatar,updateUserCoverImage,getUserChannelProfile,getWatchHistory}
+export {registerUser,
+    loginUser,
+    logOutUser,
+    refreshAccessToken,
+    changeCurrectPassword,
+    getCurrentUser,
+    updateAccountDetail,
+    updateUserAvatar,
+    updateUserCoverImage,
+    getUserChannelProfile,
+    getWatchHistory}
