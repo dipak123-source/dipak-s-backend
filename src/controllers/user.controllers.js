@@ -47,7 +47,7 @@ const registerUser = asyncHandler( async (req,res)=>{
     }).select("+password")
     if (existedUser){
         console.log("Existing user found:", existedUser);
-        throw new ApiError(409, "user with email or username already exists")
+        throw new ApiError(409, "user with email or username already exists");
     }
     let avatarLocalPath;
     let coverImageLocalPath;
@@ -230,7 +230,7 @@ const updateAccountDetail = asyncHandler(async(req,res)=>{
                 fullname,
                 email
             }
-        },
+        }, 
         {new: true}
     ).select("-password")
     return res
@@ -288,7 +288,7 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
     if(!username?.trim()){
         throw new ApiError(400,"username is missing")
     }
-    const channel = await User.aggregate([
+const channel = await User.aggregate([
         {
             $match:{//it is used for matching those element which are present in the agreegation pipeline
                 username: username?.toLowerCase()
@@ -320,7 +320,7 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
                 },
                 isSubscribed: {
                     $cond: {
-                        if: {$in: [req.user?._id, "$subscribers.subscriber"]},
+                        if: {$in: [req.user?._id, "$subscribers.subscriber"]},// here $in is used for watching the user id in subscriber
                         then: true,
                         else: false
                     }
