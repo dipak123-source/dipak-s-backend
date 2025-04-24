@@ -11,18 +11,6 @@ import { User } from "../models/user.model";
 const getAllvideo = asyncHandler(async(req,res)=>{
     const {page =1, limit=10,query,sortBy, sortType, userId } = req.query;
      console.log(userId);
-     const pipeline = [];
-     if(query){
-        pipeline.push({
-            $search: {
-                index: "search-video",
-                text: {
-                    query: query,
-                    path: ["title","description"]
-                }
-            }
-        })
-     }
 })
 
 const publicshAVideo = asyncHandler(async(req,res)=>{
