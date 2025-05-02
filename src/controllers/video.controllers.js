@@ -226,7 +226,7 @@ const updateVideo = asyncHandler(async(req,res)=>{
     const video = await Video.findById(videoId);
 
     if(!video){
-        throw new ApiError(404,"video not found");
+        throw new ApiError(404,"video is not found");
     }
     if(video.owner.toString() !== req.user._id.toString()){
         throw new ApiError(403,"You are not authorized to update this video");
