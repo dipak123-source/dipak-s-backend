@@ -11,7 +11,7 @@ const toggleVideoLike = asyncHandler(async (req, res)=>{
     }
     const likedAlready = await Like.findOne({
         video: videoId,
-        likeBy: req.user._id
+        likeBy: req.user?._id
     })
     if(likedAlready){
         await Like.findByIdAndDelete(likedAlready._id);
@@ -19,7 +19,7 @@ const toggleVideoLike = asyncHandler(async (req, res)=>{
         .status(200)
         .json(new ApiResponse(200,"video unliked successfully"))
     }
-    await Like.create({
+    await Like.create({// create a new like for the video
         video: videoId,
         likeBy: req.user?._id,
     });
@@ -36,7 +36,7 @@ const toggleCommentLike = asyncHandler(async (req, res)=>{
     }
     const likedAlready = await Like.findOne({
         comment: commentId,
-        likeBy: req.user._id
+        likeBy: req.user?._id
     });
     if(likedAlready){
         await Like.findByIdAndDelete(likedAlready?._id);
@@ -84,17 +84,17 @@ const getLikedVideos = asyncHandler(async (req, res)=>{
                         },
                     },
                     {
-                        $unwind: "$ownerDetails"
+                        $unwind: "$ownerDetails"// unwind the ownerDetails array to get the user details
                     },
                 ],
             },
         },
         {
-            $unwind: "$likedVideo",
+            $unwind: "$likedVideo",// unwind the likedVideo array to get the video details
         },
         {
             $sort: {
-                createdAt: -1,
+                createdAt: -1,// sort the liked videos by creatAt in descending order
             },
         },
         {
@@ -123,3 +123,4 @@ const getLikedVideos = asyncHandler(async (req, res)=>{
     .status(200)
     .json(new ApiResponse(200, likedVideosAggegate,"Liked videos fetched successfully"))
 })
+export { toggleVideoLike, toggleCommentLike, toggleTweetLike, getLikedVideos}
