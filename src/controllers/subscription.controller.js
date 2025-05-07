@@ -126,11 +126,45 @@ const getSubscribedChannels = asyncHandler(async (req,res)=>{
                         $addFields: {
                             latestVideo: {
                                 $last: "$channelVideos"
-                            }
-                        }
+                            },
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            $unwind: "$subscribedChannelDetails",
+        },
+        {
+            $project: {
+                _id: 0,
+                subscribedChannelDetails: {
+                    _id: 1,
+                    username: 1,
+                    fullname: 1,
+                    "avatar.url": 1,
+                    latestVideo: {
+                        _id: 1,
+                        title: 1,
+                        "thumbnail.url": 1,
+                        "videoFile.url": 1,
+                        username: 1,
+                        fullname: 1,
+                        description: 1,
+                        duration: 1,
+                        createdAt: 1,
+                        views: 1
                     }
-                ]
+                }
             }
         }
-    ])
-})
+    ]);
+    return res
+    .status(200)
+    .json(new ApiResponse(200, subscribedChannels, "subscribed channels fetched successfully"))
+});
+export {
+    toggleSubscription,
+    getUserChennelSubscribers,
+    getSubscribedChannels,
+}
