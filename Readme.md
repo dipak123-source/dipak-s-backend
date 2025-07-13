@@ -78,7 +78,7 @@ Explore the project further through the documentation and model links provided b
 
 2. **Navigate into the project:**
     ```bash
-    cd dipak aur backend
+    cd "c:\Users\dipak\Desktop\dipak aur backend"
     ```
 
 3. **Install dependencies:**
