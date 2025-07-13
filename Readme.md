@@ -14,7 +14,7 @@ Explore the project further through the documentation and model links provided b
 | Content           | Link                                                                 |
 |-------------------|----------------------------------------------------------------------|
 | 📄 API Documentation | [Click Here](https://documenter.getpostman.com/view/28570926/2s9YsNdVwW) |
-| 🧩 Database Model     | [Click Here](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)       |
+| 🧩 Model     | [Click Here](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)       |
 
 ---
 
