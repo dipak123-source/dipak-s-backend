@@ -73,12 +73,12 @@ Explore the project further through the documentation and model links provided b
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Hruthik-28/youtube-twitter.git
+    git clone https://github.com/dipak123-source/dipak-s-backend
     ```
 
 2. **Navigate into the project:**
     ```bash
-    cd youtube-twitter
+    cd dipak aur backend
     ```
 
 3. **Install dependencies:**
