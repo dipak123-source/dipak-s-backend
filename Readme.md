@@ -97,18 +97,11 @@ Explore the project further through the documentation and model links provided b
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork this repository, make your changes, and create a pull request. All constructive feedback and ideas are appreciated.
-
----
 
 ## 📄 License
 
 This project is inspired by and licensed under [Chai Aur Code](https://www.youtube.com/@chaiaurcode).
 
----
 
-## 📧 Contact
 
-For questions, feedback, or collaborations, feel free to open an issue or reach out through the project's GitHub.
+
